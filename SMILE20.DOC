@@ -1,0 +1,435 @@
+
+SMILE   Ver 2.0 ..Copyright (c) 1990,1992.. by: Michael Arnett
+
+
+SMILE Viewer is an ANSI display/library utility that allows the user
+to view files containing ANSI sequences, Music strings in BASIC
+"PLAY" format and Sounds using a custom SOUND code.
+
+SMILE builds and maintains a list of user selectable screens in a
+file for each Directory selected.  This allows the user to add Artist
+names and/or comments to each File Name using SMILE's built-in Edit
+feature.  A text editor may also be used to edit the list file.  Line
+length for File Name and Comments should be sixty characters or less.
+The "³" delimiter should not be moved or altered when editing.  When
+entering new lines, use ASCII character 179 to enter the delimiting
+character.
+
+NO ANSI DRIVER is required to view ANSI screens as SMILE contains a
+built-in ANSI translator.  Keyboard reassignment codes are ignored.
+
+
+
+GETTING STARTED:
+
+SMILE Requires approximately 350K of memory to run.  This allows for
+a large list of names to be displayed.  I tested with a list of more
+1000 file names and full descriptions.  Options such as TAG, SORT and
+SAVE take noticably longer with very large lists.
+
+
+To run, place SMILE.EXE in the current directory, or in a directory in
+your PATH, and enter SMILE at the DOS prompt. 
+
+While loading, SMILE checks for the list file FILELST.DAT by default,
+or the file specified by the /L command line switch.  If not found, a
+list of files, in the current directory, ending in .ANS is built in
+memory and displayed for viewing.
+
+In earlier versions of SMILE, any changes to the current list were 
+automatically saved to disk.  You must now select the SAVE option 
+from the MISC menu while using the SMILE Viewer.  You will also be 
+prompted to SAVE the list when you EXIT, if any changes have been made
+to the list, if you change drives or directories, or if you load a new
+list.  If you do a lot of list editing, please SAVE periodically to 
+avoid loosing data to blinking lights etc.
+
+Line length of displayed files MUST be 256 characters or less.  There
+is no limit on actual file size.
+
+
+COMMAND LINE SWITCHES  [optional]
+
+
+/LFile   - "File" is the name of the list file you want loaded.
+
+           Example:  SMILE /Lmylist.dat
+
+/A:DRV:\PATH\FILE.NAM  - complete path of your ANSI editor.
+
+           Example:  SMILE /A:C:\ANSI\THEDRAW.EXE
+
+/E:DRV:\PATH\FILE.NAM  - complete path of your TEXT editor.  
+
+           Example:  SMILE /E:C:\UTIL\QEDIT.EXE
+
+/S       - disable "DOS SHELL" option.
+/U       - disable "UPDATE\REBUILD" options.
+/D       - disable "DELETE TAGGED" option.
+/R       - disable "DRV\DIR" change option.
+/I       - disable "EDIT INFO" option.
+/X       - disable "ANSI\TEXT" Editor options.
+
+/K       - KID PROOF  (invokes ALL of the above DISABLE options)
+
+All or any combination of these switches may be used on the Command
+Line with a SPACE between each one.  They need not be in any
+particular order.
+
+
+
+VIEWING FILES:
+
+The main screen consists of several KEY COMMANDS and a display of the
+first twelve files in FILELST.DAT.  You may scroll through all the
+files using any of the cursor direction keys.  The bottom line of the 
+scroll window contains the File Name of the current List File, total
+number of file names listed and number of tagged file names.
+
+Press ENTER to display the Highlighted file.
+
+  MOUSE SUPPORT:
+
+  Click the left button once to MOVE the highlight bar or doble click
+  to view the highlighted file.  In most cases, the left button will
+  act as the ENTER key, and the Right button acts as the ESC key.  USE
+  the slide bar to scroll the list.
+
+  *** Some early revisions of Logitech Mouse Drivers do not fully display
+  *** the mouse cursor in EGA\VGA (43\50 Line) mode. 
+
+
+SMILE will pause 
+
+At the end of each screen display
+If the SPACE BAR is pressed "during" display 
+If CTRL-E is the first character of a line in the file.
+
+Press any key to continue the display or ESC to cancel.
+
+
+KEY COMMANDS:
+
+
+
+LETTER or NUMBER Key:  Begins search on the sorted field for a match
+     of the characters you enter.  Accuracy of the search increases
+     with more characters.  For example, entering "a" will find the
+     first line of text that contains an "a" anywhere in the text.
+     The search is NOT case sensitive.  The highlight bar moves to
+     the first "matched" record.  If your list is very large the 
+     search could take a few seconds.
+
+INS, SPACE BAR or RIGHT MOUSE BUTTON 
+     TAG or UNTAG the Highlighted file.  You may select several or all
+     of the File Names listed.  Files remain TAGGED even if they
+     scroll out of the selection window.  Files are TAGGED with the
+     current Display Speed and Display Mode.  By Toggling Display Mode
+     and changing the Display Speed, it is possible to TAG files with
+     different viewing characteristics.
+
+F1   Displays brief HELP screen for each COMMAND KEY.  The
+     SMILE20.DOC file will be displayed if there is sufficient memory
+     and it is in the directory with SMILE.EXE.
+
+     To ZOOM, MOVE, RESIZE or END this window, use the appropriate
+     mouse triggers or F5 to Zoom, CTRL-F5 to Move, ALT-F5 to Resize,
+     or ESC to End.
+
+F2   TAG or UNTAG every file that matches your selection, (ALL, VIEWED
+     NON-VIEWED or USER DEFINED) including those not visible in the
+     selection window.  The DEFINE option prompts for a search
+     string.  This would allow tagging by Artist.  The entire File
+     Name and Comment field is searched for the specified text.
+     Files are TAGGED with the current Display Speed and Display
+     Mode.
+
+
+F3   Displays each TAGGED file consecutively. You can select to be
+     prompted for a key press after each file is displayed, or view
+     NON-STOP.  If you select NON-STOP you can adjust the number
+     seconds delay (1-99) between each screen or pause.
+
+F4   Toggle Music ON or OFF.  This determines whether or not you
+     hear music if it is contained in the displayed file.
+
+F5   Turns Edit Mode on and allows editing the artist name and comment
+     information.
+
+F6   Toggle between 25 line and 43/50 line (EGA/VGA) mode if available.
+
+
+F7   Select Display speed.  Selections simulate modem baud rates.
+     Select 0 (default) for the fastest display.  Speed selections
+     include:
+   
+        19,200, 9600, 2400, 1200, 300
+
+
+F8 - LIST OPTIONS
+
+     SAVE  The current List is saved to the specified File Name.
+           Press ESC to cancel save.
+
+     LOAD  The List file name specified is loaded into memory.
+
+     UPDATE  Updates the current List with new files that match the
+           current File Mask.  Existing artist\comment information
+           is retained.  File names that have been erased from the
+           directory are deleted from the list. If you see the
+           message: "FILE NOT FOUND" when viewing, select this option
+           to refresh the file name list.  You may also use a text
+           editor to delete file names from FILELST.DAT that are not
+           needed or no longer exist.
+
+     REBUILD  Removes the current List from memory, then rebuilds
+           using the currently selected File Mask.  You will be
+           prompted to save the current list if any changes have been
+           made.
+
+     SORT  You are prompted to sort alphabetically on File Name or
+           comment field.  Press ESC to cancel.
+
+     DELETE TAGGED  You may select to delete tagged file names from
+           the LIST, from your Disk Drive or BOTH.
+         
+
+F9 - Change FILE MASK, DRIVE or DIRECTORY. You may enter any DOS
+     compatible File Name or wild card.
+
+     EX.  *.*,  *.ANS,  *.MSG,  ???.*,  SMILE.ANS
+
+     Press TAB to move between File Mask, Directory, Drive and Button
+     fileds (ALT-O Ok, ALT-C Cancel, ALT-H Help).  Selecting Cancel
+     or pressing ESC will close the window with no changes.
+     Otherwise, you will be prompted to UPDATE or REBUILD the file
+     list.  (See explanations above).
+
+     If you change drives or directoies, and changes have been made to
+     the current list, you will be prompted to SAVE the list.  The 
+     default List Name will change to FILELST.DAT.  If not found
+     in the new directory, it will be created.
+    
+
+F10  MISCELLANEOUS OPTIONS
+
+     ANSI Editor  You are prompted for a drive, path and file name if
+          the /A: command line switch is not used, or the specified 
+          file can not be found.  The highlighted file name is passed
+          to the editor.
+          
+          Testing was done using TheDraw versions 3.3 and 4.01.  It
+          required approximately 586K of memory to load SMILE 2.0
+          and run version 4.01 with this option.  Version 3.3 required  
+          significantly less memory to run under this option.
+
+     TEXT Editor  You are prompted for a drive, path and file name if
+          the /E: comand line switch is not used, or the specified 
+          file can not be found.  The highlighted file name is passed
+          to the editor.
+
+     ** NOTE **  any executible file (EXE/COM) may be run using the 
+                 options avove provided there is sufficient memory.
+
+     FILE INFO displays Size, Date and Time of Highlighted File Name.
+
+     DOS SHELL  Type Exit to return to SMILE
+
+     SYSTEM MEMORY is displayed in a window.
+
+     SYSTEM TIME is displayed in a window
+
+     EXIT You may select this option or press ESC at the main screen
+          to exit SMILE.  You will be prompted to SAVE the current 
+          File List if any changes have been made.
+
+ALT-X   Fast Exit from SMILE.  No prompts are displayed.  
+        *** ANY CHANGES TO THE CURRENT LIST WILL BE LOST ***
+
+
+
+
+          MUSIC:
+     
+          Syntax: ESC[MF T120 O2C8D8E8F8G8 (DEC 14)
+     
+          Music strings in the BASIC Play format are supported.
+          Multiple strings per line may be entered.  
+     
+          Music strings should begin with the characters "<esc>[M"
+          where <esc> is a true ESC character (DEC 27, Hex 1B).
+          Please refer to your BASIC manual for information on the
+          BASIC Play commands.  The following are all valid for
+          beginning a Music string in SMILE: MF, MB, MN, ML, MS, M .
+          Although MB (Music Background) is valid, true backgroud    
+          music is NOT supported.
+     
+          Music strings should end with the musical note character
+          (DEC 14, Hex 0E, CTRL-N).  If this character is missing,
+          SMILE will look for the next ESC character or the
+          end-of-line marker to terminate the music string.  This
+          option was added to try and catch as many incorrectly
+          formated music strings as possible.  However, for
+          compatiblity with other viewers, I suggest you always end
+          your music strings with CTRL-N (DEC 14)
+     
+
+     
+          SOUND: 
+          ( Thanks to Julie Ibarra, author of ANSIPLAY for this idea )
+     
+          Syntax: 
+          ESC[MF Freq; Duration; Cycles; CycleDelay;Variation (DEC14)
+     
+          Custom Sounds are supported in SMILE by using a SOUND CODE
+          similar to that found in BASIC and the program ANSIPLAY.
+          However, the SOUND generator in SMILE differs from the
+          SOUND command in BASIC.  Therefore, different frequency
+          values must be used to produce the musical notes.  These
+          are listed somewhere down the page.
+     
+          The SOUND statement must begin and end in the same manner
+          discussed above for a normal music string.  The SOUND CODE
+          consists of the following parameters serparated by a
+          semicolon (;) :
+     
+          FREQ     : Frequency of note to be played.  The affective 
+                     range of frequencies is 0 to 7904.  
+                     (0..65535)
+          
+          DURATION : Time, in milliseconds, the note should be played.  
+                     (0..65535)
+     		
+          CYCLES   : Number of times to repeat Frequency/Duration.
+                     (0..65535)
+     		
+          DELAY    : Time, in milliseconds, between cycles.  
+                     (0..65535)
+     		
+          VARIATION: Frequency value is changed by this number for
+                     each CYCLE the note is played.  
+                     (-65535..65535)
+     
+     
+          (NOTE: 1 second = 1000 milliseconds)
+     		
+     
+          Press ESC to exit a DURATION or DELAY action.  You may
+          have to press ESC a couple of times to completely exit
+          a sound sequence.
+     
+          SOUND CODE Musical Note Frequency Values (7 Octives):
+     
+
+            C    C#   D    D#   E    F    F#   G    G#   A    A#   B
+       
+            65   69   73   78   82   87   92   98  104  110  116  123 
+           131  139  147  156  165  175  185  196  208  220  233  247 
+           262  278  294  312  330  350  370  392  416  440  466  494 
+           524  556  588  624  660  700  740  784  832  880  932  988 
+          1048 1112 1176 1248 1320 1400 1480 1568 1664 1760 1864 1976 
+          2096 2224 2352 2496 2640 2800 2960 3136 3328 3520 3728 3952 
+          4192 4448 4704 4992 5280 5600 5920 6272 6656 7040 7456 7904  
+
+
+          One advantage of the SOUND CODE is the ability to place a
+          PAUSE in your ANSI screens without having to use a
+          multitude of ESC[s codes.  Just use a SOUND CODE with the
+          DELAY set very high to get a pause.  For example,
+     
+          ESC[MF ;;;60000
+     
+          would pause your ANSI Screen for 60 seconds, or until a key
+          is pressed when viewing it with SMILE.  Remember, these 
+          SOUND CODES are not supported by bulletin boards...(yet)!
+
+
+
+
+DISCLAIMER: (gotta have it)
+     
+    SMILE 2.0 is provided *AS IS* without any warranty, expressed or
+    implied.  All Rights are reserved.  The author will assume no
+    liability for damages either from the direct use of this product
+    or as a consequence of the use of this product.
+
+    SMILE has been successfully tested on a variety of different PCs.
+    However, problems could appear on machines with different
+    configurations.  Use of this program is at your own risk.
+
+
+COMMENTS:
+
+    SMILE 2.0 was written using
+    Turbo Pascal 6.0 and TechnoJock Software Toolkits
+                   
+
+    Turbo Pascal is copyright by Borland International
+    TechnoJock's Object Toolkit is copyright by TechnoJock Software Inc.     
+    GT Power is copyright by P&M Software
+    TheDraw is copyright by TheSoft Programming Services & Ian E. Davis
+    ANSIPLAY is copyright by Julie Ibarra
+
+
+    SMILE 2.0 has been donated to the SMILING KIDS PROJECT at no
+    cost.  Any proceeds from distribution of this program and associated
+    files will be used in support of the MAKE A KID SMILE charity.
+
+
+
+    -----------------------------* * * * * * *----------------------------
+
+	  Members of THE GAVEL BBS, a private BBS sponsoring the GT
+	  International ANSI/ASCII Art Conference, collect new and used
+	  computer hardware, software and cash for donation to children's
+	  hospitals for the benefit of hospitalized kids.  This non-profit
+	  effort has come to be known as THE SMILING KIDS PROJECT.
+
+	The first computer, paid for with donations to the SMILING KIDS
+	project, was delivered to Texas Children's hospital, Houston, TX, 
+	in January 1991.  A second computer will be delivered to Depelchin
+        Children's Center in January of 1992.  We hope to continue providing
+        the kids at childrens' hospitals with customized VGA computers in 
+        the years to come. 
+
+	The spectacular ANSI artwork collected at THE GAVEL was the driving
+	force behind the writing of the SMILE Viewer, SMILE Quick and
+	SMILEDOR graphics display programs and much of this fantastic art is
+	included with this offer.
+
+          If you find this program useful, please consider supporting 
+          MAKE A KID SMILE with whatever you can afford.  For a 
+          donation of $20 or more, you will receive the latest version 
+          of The SMILE Viewer, SMILE Quick or the SMILE Door *AND* The 
+          SMILING KIDS ANSI ART COLLECTION.  Please specify the 
+          particular program you desire.  
+
+                     Send donations to the following adress
+                 and make all checks payable to MAKE A KID SMILE.  
+
+           
+                                MAKE A KID SMILE 
+                               c/o Ernest Debakey
+                           The Bechtel Tower, Suite 1480
+                             3000 Post Oak Boulevard
+                             Houston, TX 77056-6582     
+     
+     
+          All comments and suggestions are welcomed and may be sent to:
+
+                                 Michael Arnett
+                                 2623 Halstead 
+                                Spring, TX 77386
+
+                                       or 
+
+                             GT Power Network EMAIL
+
+                            The Gavel BBS, Houston Tx.
+                                 NetMail  001/030
+                                 EchoMail E10/037   
+
+
+
+    -----------------------------* * * * * * *-----------------------------
+

@@ -1,0 +1,29 @@
+SMILE 2.0  ....Copyright (C) 1990,1991....  by Michael Arnett
+
+Version
+
+   2.0  NEW MENUS and INTERFACE
+        No ANSI driver required (Keyboard reassignment codes ignored)
+        Full Mouse support
+        EGA\VGA (43\50 line) support
+        List 1000+ File Names (approx. 300K of memory)
+        Six display speeds (Five simulated baud rates)
+        SAVE\LOAD options for current File Name List
+        Delete Tagged file names from list or disk drive
+        Enhanced music support (Custom SOUND codes)
+        Enhanced DRIVE\DIRECTORY change option
+        Shell to DOS
+        Command line switches to disable List, File and DOS options.
+
+   1.3  Sort Routines for Screen or Artist info
+        Names of VIEWed screens are displayed in Green
+        Search listings for user defined text
+        Tag ALL, Unviewed, Viewed, or Defined files
+
+   1.2  Allow call to ANSI Editor via ALT-A (command line parameter /A:)
+        Allow call to TEXT Editor via ALT-E (command line parameter /E:)
+        Added FAST or SLOW display speeds  (Toggle with ALT-S)
+        Show Record number of Total records
+        INS Tags current display speed & moves cursor down one record
+        Tag Files with either Fast or Slow display
+
